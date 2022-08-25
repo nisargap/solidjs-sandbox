@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { createSignal } from 'solid-js';
 
 function App() {
+  const [count, setCount] = createSignal(0);
   return (
-    <div class="App">
-      <header class="App-header">
-        <img src={logo} class="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class="App-link"
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <p class="text-4xl text-red-400 tracking-widest">
+    The Count is {count()}</p>
+    
+    <button class="btn btn-blue" onClick={() => setCount(count() + 1)}>
+      Counter
+    </button>
+    </>
+  )
 }
 
 export default App;
